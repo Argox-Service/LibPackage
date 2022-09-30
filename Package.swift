@@ -14,6 +14,6 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "ArgoxSDK",
-            path: "./Sources/ArgoxSDK.zip")
+            path: "./Sources/ArgoxSDK.xcframework")
     ]
 )

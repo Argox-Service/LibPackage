@@ -1,0 +1,11 @@
+framework module ArgoxSDK_iOS {
+  umbrella header "ArgoxSDK_iOS.h"
+
+  export *
+  module * { export * }
+}
+
+module ArgoxSDK_iOS.Swift {
+    header "ArgoxSDK_iOS-Swift.h"
+    requires objc
+}

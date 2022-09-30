@@ -1,0 +1,195 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target arm64-apple-ios15.5-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ArgoxSDK_iOS
+@_exported import ArgoxSDK_iOS
+import CoreGraphics
+import Foundation
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+@_hasMissingDesignatedInitializers public class PPLB_SetUtil {
+  public func setClearImageBuffer()
+  public func setLabelLength(_ type: ArgoxSDK_iOS.PPLBMediaTrack, _ length: Swift.Int?, _ gap: Swift.Int! = 0) throws
+  public func setPrintWidth(_ width: Swift.Int?) throws
+  public func setHomePosition(_ x: Swift.Int!, _ y: Swift.Int!) throws
+  public func setOrientation(_ isInvert: Swift.Bool!)
+  public func setHardwareOption(_ mediaType: ArgoxSDK_iOS.PPLBMediaType!, _ printMode: ArgoxSDK_iOS.PPLBPrintMode, _ cutValue: Swift.Int! = 0) throws
+  public func setBackfeed(_ isEnable: Swift.Bool!, _ offset: Swift.Int!) throws
+  public func setDarkness(_ darkness: Swift.Int!) throws
+  public func setPrintRate(_ printSpeed: Swift.Int!) throws
+  public func setPrintOut(_ numberOfLabelSet: Swift.Int!, _ numberOfCopyOfEachLabel: Swift.Int!) throws
+  public func setReset()
+  public func setMediaCalibration()
+  public func setStorage(_ storageType: ArgoxSDK_iOS.PPLBStorage!)
+  public func setSerial(_ baudRate: Swift.Int!, _ parity: ArgoxSDK_iOS.SerialParity!, _ dataBits: Swift.Int!, _ stopBits: ArgoxSDK_iOS.SerialStopBits!) throws
+  @objc deinit
+}
+public enum PPLBMediaType : Swift.UInt8 {
+  case Thermal_Transfer_Media
+  case Direct_Thermal_Media
+  public init?(rawValue: Swift.UInt8)
+  public typealias RawValue = Swift.UInt8
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+public enum PPLBMediaTrack : Swift.UInt8 {
+  case Continuous_Media_Mode
+  case Gap_Mode
+  case Black_Line_Mode
+  public init?(rawValue: Swift.UInt8)
+  public typealias RawValue = Swift.UInt8
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+public enum PPLBPrintMode : Swift.UInt8 {
+  case Tear_Off
+  case Peel_Off
+  case Cutter
+  public init?(rawValue: Swift.UInt8)
+  public typealias RawValue = Swift.UInt8
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+public enum PPLBStorage : Swift.String {
+  case Dram
+  case Flash
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum PPLBDraw : Swift.String {
+  case Draw_Black
+  case Draw_XOR
+  case Draw_White
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public class PPLB {
+  public var name: Swift.String {
+    get
+  }
+  final public let setUtil: ArgoxSDK_iOS.PPLB_SetUtil
+  final public let graphicsUtil: ArgoxSDK_iOS.PPLB_GraphicsUtil
+  final public let queue: ArgoxSDK_iOS.PPLB_QueueBuf
+  public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class PrinterErrorMsg {
+  final public let generalException: Swift.String
+  final public let illegalArgument: Swift.String
+  final public let readTimeoutException: Swift.String
+  final public let writeTimeoutException: Swift.String
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class PPLB_QueueBuf {
+  public func clear()
+  public func getValue() -> [Swift.UInt8]
+  public func getHexAscii() -> Swift.String
+  public func getData() -> Foundation.Data
+  @objc deinit
+}
+public enum SerialParity {
+  case None
+  case Odd
+  case Even
+  case Mark
+  case Space
+  public static func == (a: ArgoxSDK_iOS.SerialParity, b: ArgoxSDK_iOS.SerialParity) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum SerialHandshake {
+  case None
+  case XOnXOff
+  case RequestToSend
+  case RequestToSendXOnXOff
+  public static func == (a: ArgoxSDK_iOS.SerialHandshake, b: ArgoxSDK_iOS.SerialHandshake) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum SerialStopBits {
+  case One
+  case Two
+  public static func == (a: ArgoxSDK_iOS.SerialStopBits, b: ArgoxSDK_iOS.SerialStopBits) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class PPLB_GraphicsUtil {
+  public func printLine(_ x: Swift.Int!, _ y: Swift.Int!, _ width: Swift.Int!, _ height: Swift.Int!, _ mode: ArgoxSDK_iOS.PPLBDraw!) throws
+  public func printDiagonal(_ x: Swift.Int!, _ y: Swift.Int!, _ width: Swift.Int!, _ height: Swift.Int!, _ y_end: Swift.Int!) throws
+  public func printBox(_ x: Swift.Int!, _ y: Swift.Int!, _ width: Swift.Int!, _ height: Swift.Int!, _ thickness: Swift.Int!) throws
+  public func storeGraphic(_ image: UIKit.UIImage!, _ imagename: Swift.String!, _ rate: Swift.Float? = 0.8) throws
+  public func storeGraphic(_ image: UIKit.UIImage!, _ imagename: Swift.String!, _ width: Swift.Int!, _ height: Swift.Int!, _ rate: Swift.Float? = 0.8) throws
+  public func printStoreGraphic(_ x: Swift.Int!, _ y: Swift.Int!, _ imagename: Swift.String!) throws
+  public func printGraphic(_ x: Swift.Int!, _ y: Swift.Int!, _ image: UIKit.UIImage!, _ rate: Swift.Float? = 0.8) throws
+  public func deleteStoreGraphic(_ imagename: Swift.String!) throws
+  @objc deinit
+}
+public class BitmapEx {
+  public func rotateToDegrees(_ image: UIKit.UIImage!, _ rotation: Swift.Int) -> UIKit.UIImage?
+  public func scaleToSize(_ image: UIKit.UIImage!, _ width: Swift.Int, _ height: Swift.Int) -> UIKit.UIImage?
+  public init()
+  @objc deinit
+}
+extension CoreGraphics.CGImage {
+  public func convertColorToMono(_ monoData: inout [Swift.UInt8], _ rate: Swift.Float? = 0.8) throws -> Swift.Bool
+}
+extension CoreGraphics.CGBitmapInfo {
+  public enum ComponentLayout {
+    case bgra
+    case abgr
+    case argb
+    case rgba
+    case bgr
+    case rgb
+    public static func == (a: CoreGraphics.CGBitmapInfo.ComponentLayout, b: CoreGraphics.CGBitmapInfo.ComponentLayout) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public var componentLayout: CoreGraphics.CGBitmapInfo.ComponentLayout? {
+    get
+  }
+  public var chromaIsPremultipliedByAlpha: Swift.Bool {
+    get
+  }
+}
+extension ArgoxSDK_iOS.PPLBMediaType : Swift.Equatable {}
+extension ArgoxSDK_iOS.PPLBMediaType : Swift.Hashable {}
+extension ArgoxSDK_iOS.PPLBMediaType : Swift.RawRepresentable {}
+extension ArgoxSDK_iOS.PPLBMediaTrack : Swift.Equatable {}
+extension ArgoxSDK_iOS.PPLBMediaTrack : Swift.Hashable {}
+extension ArgoxSDK_iOS.PPLBMediaTrack : Swift.RawRepresentable {}
+extension ArgoxSDK_iOS.PPLBPrintMode : Swift.Equatable {}
+extension ArgoxSDK_iOS.PPLBPrintMode : Swift.Hashable {}
+extension ArgoxSDK_iOS.PPLBPrintMode : Swift.RawRepresentable {}
+extension ArgoxSDK_iOS.PPLBStorage : Swift.Equatable {}
+extension ArgoxSDK_iOS.PPLBStorage : Swift.Hashable {}
+extension ArgoxSDK_iOS.PPLBStorage : Swift.RawRepresentable {}
+extension ArgoxSDK_iOS.PPLBDraw : Swift.Equatable {}
+extension ArgoxSDK_iOS.PPLBDraw : Swift.Hashable {}
+extension ArgoxSDK_iOS.PPLBDraw : Swift.RawRepresentable {}
+extension ArgoxSDK_iOS.SerialParity : Swift.Equatable {}
+extension ArgoxSDK_iOS.SerialParity : Swift.Hashable {}
+extension ArgoxSDK_iOS.SerialHandshake : Swift.Equatable {}
+extension ArgoxSDK_iOS.SerialHandshake : Swift.Hashable {}
+extension ArgoxSDK_iOS.SerialStopBits : Swift.Equatable {}
+extension ArgoxSDK_iOS.SerialStopBits : Swift.Hashable {}
+extension CoreGraphics.CGBitmapInfo.ComponentLayout : Swift.Equatable {}
+extension CoreGraphics.CGBitmapInfo.ComponentLayout : Swift.Hashable {}
